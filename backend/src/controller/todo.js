@@ -9,7 +9,8 @@ const todoController = (todoService) => {
         return res.status(400).json({ error: 'Task should be filled in.' });
       }
 
-      res.json(todoService.addTodo(task))
+      await todoService.addTodo(task)
+      res.status(201).json({ message: 'Todo added successfully.' });
     }
   }
 }
